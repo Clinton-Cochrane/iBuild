@@ -1,6 +1,7 @@
 import { dialogueData, MAP_SCALE, PLAYER_SCALE } from "./constants";
 import { k } from "./kaplayCtx";
 import { displayDialogue } from "./utils";
+import { clearDirectionButtons, isDirectionButtonDown } from "./controls";
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
     sliceX: 39,
@@ -61,13 +62,15 @@ k.scene("main", () => {
         "player",
     ]);
     player.onUpdate(() => {
-        if (player.isInDialogue) return;
         player.dir.x = 0;
         player.dir.y = 0;
-        if (k.isKeyDown("left")) player.dir.x = -1;
-        if (k.isKeyDown("right")) player.dir.x = 1;
-        if (k.isKeyDown("up")) player.dir.y = -1;
-        if (k.isKeyDown("down")) player.dir.y = 1;
+        if (player.isInDialogue) return;
+        const isDown = (direction, key) => k.isKeyDown(direction)
+            || k.isKeyDown(key) || isDirectionButtonDown(direction);
+        if (isDown("left", "a")) player.dir.x = -1;
+        if (isDown("right", "d")) player.dir.x = 1;
+        if (isDown("up", "w")) player.dir.y = -1;
+        if (isDown("down", "s")) player.dir.y = 1;
 
         player.move(player.dir.unit().scale(player.speed));
     });
@@ -100,6 +103,7 @@ k.scene("main", () => {
                 player.onCollide(object.name, () => {
                     if (player.isInDialogue) return;
                     player.isInDialogue = true;
+                    clearDirectionButtons();
                     displayDialogue(dialogueData[object.name], () => {
                         player.isInDialogue = false;
                     });
