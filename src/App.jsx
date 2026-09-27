@@ -1,16 +1,16 @@
 import { Routes, Route } from "react-router-dom"
-import Navigation from "./components/navigation/navigation.jsx"
+import Header from "./components/header/header.jsx";
 import Consulting from "./pages/consulting/main.jsx";
 import Projects from "./pages/projects/main.jsx";
 import Contact from "./pages/contact/main.jsx";
 import Photos from "./pages/photos/main.jsx";
 import About from "./pages/about/main.jsx";
 import Home from "./pages/home/main.jsx";
-
+import "./styles/app.css" 
 function App() {
   return (
     <>
-      <Navigation />
+      <Header />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Home />} />
