@@ -27,6 +27,25 @@ const aboutSections = {
     }
 };
 
+const aboutCards = [
+    {
+        title: "Spare Time",
+        description: "When I am not working, I like getting away from the screen, exploring, taking photos, and working on whatever has caught my curiosity.",
+        className: "about-card-spare-time",
+    },
+    {
+        title: "Hobbies",
+        description: "Photography, bicycles, the outdoors, tinkering with technology, and learning things simply because I wanted to know how they work.",
+        className: "about-card-hobbies",
+    },
+    {
+        title: "What I Like To Build",
+        description: "Useful things. I am drawn to practical projects that solve real problems, remove friction, or make somebody's life a little easier.",
+        className: "about-card-building",
+
+    }
+]
+
 
 export default function About() {
     const [activeSection, setActiveSection] = useState("present");
@@ -68,6 +87,14 @@ export default function About() {
                     <p key={paragraph}>{paragraph}</p>
                 ))}
             </Papercard>
+
+            <section className="about-card-grid" aria-label="More about me">
+                {aboutCards.map((card) => (
+                    <Papercard key={card.title} title={card.title} className={card.className}>
+                        <p>{card.description}</p>
+                    </Papercard>
+                ))}
+            </section>
         </main>
     )
 }

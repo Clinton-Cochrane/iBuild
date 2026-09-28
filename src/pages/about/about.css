@@ -86,3 +86,29 @@
     font-size: 1.05rem;
     line-height: 1.8;
 }
+
+.about-card-grid {
+    display: grid;
+    grid-template-columns: repeat();
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .about-switcher {
+        grid-template-columns: 1fr;
+        border-radius: 1rem;
+    }
+
+    .about-switcher-button {
+        border-radius: 0.75rem;
+    }
+
+    .about-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-main-card {
+        padding: 2rem;
+    }
+}
