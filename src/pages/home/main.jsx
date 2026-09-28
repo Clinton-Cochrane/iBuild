@@ -28,28 +28,36 @@ const homeCards = [
     {
         title: "About",
         to: "/about",
-        description: "A little about where I came from, how I work now, and where I am trying to go.",
-        className: "home-card-about"
+        description:
+            "A little about where I came from, how I work now, and where I am trying to go.",
+        className: "home-card-about",
     },
-
     {
         title: "Projects",
         to: "/projects",
-        description: "Software and experiments I have built because something seemed worth making.",
-        className: "home-card-consulting"
+        description:
+            "Software and experiments I have built because something seemed worth making.",
+        className: "home-card-projects",
     },
-
+    {
+        title: "Consulting",
+        to: "/consulting",
+        description:
+            "Real problems I have helped businesses solve.",
+        className: "home-card-consulting",
+    },
     {
         title: "Photos",
         to: "/photos",
-        description: "A collection of things I noticed along the way.",
-        className: "home-card-photos"
+        description:
+            "A collection of things I noticed along the way.",
+        className: "home-card-photos",
     },
-
     {
         title: "Contact",
         to: "/contact",
-        description: "Have something interesting to build? Say hello.",
-        className: "home-card-contact"
+        description:
+            "Have something interesting to build? Say hello.",
+        className: "home-card-contact",
     },
-]
+];
