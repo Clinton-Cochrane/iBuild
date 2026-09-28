@@ -1,0 +1,88 @@
+.about-page {
+    width: min(1200px, calc(100% - 4rem));
+    margin: 0 auto;
+    padding-bottom: 4rem;
+}
+
+.about-heading {
+    margin: 1rem 0 2rem;
+
+    font-size: 2rem;
+}
+
+.about-switcher {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-bottom: 1.5rem;
+    padding: 0.4rem;
+
+    background: #fafaf7;
+    border: 1px solid #d8d7d1;
+    border-radius: 999px;
+
+    box-shadow:
+        8px 10px 18px rgba(0, 0, 0, 0.10),
+        2px 3px 5px rgba(0, 0, 0, 0.08);
+}
+
+.about-switcher-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0.8rem 1rem;
+
+    background: transparent;
+    color: #555555;
+
+    border: 0;
+    border-radius: 999px;
+
+    font: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background-color 150ms ease,
+        box-shadow 150ms ease,
+        transform 150ms ease;
+}
+
+.about-switcher-button strong {
+    color: #181818;
+    font-size: 1rem;
+}
+
+.about-switcher-button span {
+    margin-top: 0.2rem;
+
+    font-size: 0.8rem;
+}
+
+.about-switcher-button:hover {
+    transform: translateY(-1px);
+}
+
+.about-switcher-button.active {
+    background: #f4f3ef;
+
+    box-shadow:
+        3px 4px 7px rgba(0, 0, 0, 0.08);
+}
+
+.about-main-card {
+    min-height: 24rem;
+    padding: 3rem;
+}
+
+.about-main-card h2 {
+    font-size: 2rem;
+}
+
+.about-main-card p {
+    max-width: 45rem;
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
