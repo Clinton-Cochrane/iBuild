@@ -1,29 +1,62 @@
+/* =========================
+   ABOUT PAGE
+   ========================= */
+
 .about-page {
     width: min(1200px, calc(100% - 4rem));
     margin: 0 auto;
-    padding-bottom: 4rem;
+    padding-bottom: 5rem;
 }
+
+
+/* =========================
+   PAGE HEADING
+   ========================= */
 
 .about-heading {
+    width: fit-content;
+
     margin: 1rem 0 2rem;
 
+    color: #181818;
     font-size: 2rem;
 }
+
+.about-heading::after {
+    content: "";
+
+    display: block;
+
+    width: 4rem;
+    height: 1px;
+
+    margin-top: 0.5rem;
+
+    background: #8a8a86;
+}
+
+
+/* =========================
+   PAST / PRESENT / FUTURE
+   ========================= */
 
 .about-switcher {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    margin-bottom: 1.5rem;
-    padding: 0.4rem;
+    width: min(780px, 100%);
 
-    background: #fafaf7;
+    margin-bottom: 2rem;
+    padding: 0.35rem;
+
+    background: #f1f0eb;
+
     border: 1px solid #d8d7d1;
-    border-radius: 999px;
+    border-radius: 0.75rem;
 
     box-shadow:
-        8px 10px 18px rgba(0, 0, 0, 0.10),
-        2px 3px 5px rgba(0, 0, 0, 0.08);
+        6px 8px 14px rgba(0, 0, 0, 0.08),
+        2px 3px 4px rgba(0, 0, 0, 0.06);
 }
 
 .about-switcher-button {
@@ -31,13 +64,13 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 0.8rem 1rem;
+    padding: 0.9rem 1rem;
 
     background: transparent;
     color: #555555;
 
     border: 0;
-    border-radius: 999px;
+    border-radius: 0.6rem;
 
     font: inherit;
 
@@ -57,26 +90,44 @@
 .about-switcher-button span {
     margin-top: 0.2rem;
 
+    color: #8a8a86;
     font-size: 0.8rem;
 }
 
 .about-switcher-button:hover {
-    transform: translateY(-1px);
+    transform: translate(-1px, -1px);
 }
 
 .about-switcher-button.active {
-    background: #f4f3ef;
+    background: #fafaf7;
+
+    transform: translate(-2px, -2px);
 
     box-shadow:
-        3px 4px 7px rgba(0, 0, 0, 0.08);
+        5px 6px 10px rgba(0, 0, 0, 0.10),
+        2px 3px 4px rgba(0, 0, 0, 0.06);
 }
 
+
+/* =========================
+   MAIN STORY SHEET
+   ========================= */
+
 .about-main-card {
-    min-height: 24rem;
+    min-height: 20rem;
     padding: 3rem;
+
+    border-radius: 0.5rem;
+
+    box-shadow:
+        4px 5px 0 #ecebe6,
+        8px 10px 0 #e4e3dd,
+        12px 16px 24px rgba(0, 0, 0, 0.12);
 }
 
 .about-main-card h2 {
+    margin-top: 0;
+
     font-size: 2rem;
 }
 
@@ -87,16 +138,54 @@
     line-height: 1.8;
 }
 
+
+/* =========================
+   SUPPORTING NOTES
+   ========================= */
+
 .about-card-grid {
     display: grid;
-    grid-template-columns: repeat();
+    grid-template-columns: repeat(3, 1fr);
+
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+
+    align-items: start;
 }
 
+.about-card-grid .paper-card {
+    min-height: 15rem;
+
+    border-radius: 0.5rem;
+}
+
+.about-card-spare-time {
+    transform: translateY(0.5rem);
+}
+
+.about-card-hobbies {
+    transform: translateY(0);
+}
+
+.about-card-building {
+    transform: translateY(0.75rem);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 800px) {
+    .about-page {
+        width: min(100% - 2rem, 1200px);
+    }
+
     .about-switcher {
         grid-template-columns: 1fr;
+
+        width: 100%;
+
         border-radius: 1rem;
     }
 
@@ -104,11 +193,18 @@
         border-radius: 0.75rem;
     }
 
+    .about-main-card {
+        min-height: auto;
+        padding: 2rem;
+    }
+
     .about-card-grid {
         grid-template-columns: 1fr;
     }
 
-    .about-main-card {
-        padding: 2rem;
+    .about-card-spare-time,
+    .about-card-hobbies,
+    .about-card-building {
+        transform: none;
     }
 }
