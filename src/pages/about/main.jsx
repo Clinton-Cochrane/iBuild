@@ -53,7 +53,6 @@ export default function About() {
 
     return (
         <main className="about-page">
-            <h1 className="about-heading">About Me</h1>
             <div className="about-switcher" aria-label="About timeline">
                 <button
                     className={`about-switcher-button ${activeSection === 'past' ? 'active' : ""}`}
