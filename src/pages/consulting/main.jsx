@@ -39,9 +39,7 @@ export default function Consulting() {
     return (
         <main className="consulting-page">
             <header className="consulting-header">
-                <h1 className="consulting-heading">Consulting</h1>
-                <p>  I help small businesses turn technical problems and ideas
-                    into practical tools they can actually use.
+                <p>  I solve small businesses technical problems
                 </p>
             </header>
 

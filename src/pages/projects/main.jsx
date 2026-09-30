@@ -4,7 +4,6 @@ import "./project.css"
 export default function Projects() {
     const featuredProjects = projects.filter((project) => project.featured);
     return (<main className="projects-page">
-        <h1 className="projects-heading">Projects</h1>
 
         <p className="projects-intro">
             Things I have built, experimented with, and learned from.

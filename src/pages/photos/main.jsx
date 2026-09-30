@@ -46,7 +46,6 @@ export default function Photos(){
     return (
         <main className="photos-page">
             <header className="photos-header">
-                <h1 className="photos-heading">Photos</h1>
 
                 <p>
                     A collection of things that caught my eye.

@@ -18,7 +18,6 @@ export default function Contact() {
     return (
         <main className="contact-page">
             <header className="contact-header">
-                <h1 className="contact-heading">Contact</h1>
 
                 <p>
                     Have something interesting to build, fix, or talk about?

@@ -114,6 +114,7 @@
    ========================= */
 
 .about-main-card {
+    height: 20rem;
     min-height: 20rem;
     padding: 3rem;
 
@@ -132,10 +133,26 @@
 }
 
 .about-main-card p {
-    max-width: 45rem;
 
     font-size: 1.05rem;
     line-height: 1.8;
+}
+
+.about-main-card .paper-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.about-main-card-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.about-main-card-scroll p:first-child {
+    margin-top: 0;
 }
 
 
@@ -194,6 +211,7 @@
     }
 
     .about-main-card {
+        height: 28rem;
         min-height: auto;
         padding: 2rem;
     }

@@ -1,3 +1,9 @@
+.home-page {
+  width: min(1200px, calc(100% - 4rem));
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
 .home-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -11,6 +17,26 @@
 
   min-height: 18rem;
   padding: 2.5rem;
+}
+
+.home-intro .paper-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.home-intro-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: auto;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.home-intro-links a {
+  color: #181818;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .home-card-about {
@@ -42,4 +68,19 @@
 .home-card-photos,
 .home-card-contact {
   min-height: 16rem;
+}
+
+@media (max-width: 800px) {
+  .home-page {
+    width: min(100% - 2rem, 1200px);
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-grid .paper-card {
+    grid-column: 1;
+    grid-row: auto;
+  }
 }
