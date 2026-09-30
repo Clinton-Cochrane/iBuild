@@ -22,7 +22,7 @@ const consultingWork = [
         id: "little-town-bakes",
         title: "Little Town Bakes",
         clientType: "cottage bakery",
-        description: "A custom ordering and inventory  - system designed around the workflow of a small bakery.",
+        description: "A custom ordering and inventory system designed around the workflow of a small bakery.",
         keywords: ["Web", "Ordering", "Inventory", "React, Node"],
         technologies: ["React", "Next.js", "PostgresSql"],
         projectUrl: "https://little-town-bakes.vercel.app/",
