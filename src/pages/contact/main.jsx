@@ -4,15 +4,47 @@ import "./contact.css"
 
 export default function Contact() {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [status, setStatus] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     function handleChange(event) {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value })
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
+        setIsSubmitting(true);
+        setStatus("");
+
+        try {
+            const response = await fetch(
+                "https://4kkh7ofq1f.execute-api.us-west-1.amazonaws.com/contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Message failed to send.");
+            }
+
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+            });
+
+            setStatus("Message sent.");
+        } catch {
+            setStatus("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -77,9 +109,15 @@ export default function Contact() {
                     <button
                         className="contact-submit"
                         type="submit"
+                        disabled={isSubmitting}
                     >
-                        Send →
+                        {isSubmitting ? "Sending..." : "Send →"}
                     </button>
+                    {status && (
+                        <p className="contact-status">
+                            {status}
+                        </p>
+                    )}
                 </form>
             </Papercard>
         </main>
