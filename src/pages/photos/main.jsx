@@ -1,36 +1,7 @@
 import { useState } from "react"
 import Papercard from "../../components/papercard/papercard"
+import photos from "../../data/photos"
 import "./photos.css"
-
-const photos = [
-    {
-        id: "photo-1",
-        src: "/photos/photo-1.jpg",
-        alt: "Landscape photograph",
-        title: "Photo One",
-        date: "2026",
-        description:
-            "A temporary description for this photograph.",
-    },
-    {
-        id: "photo-2",
-        src: "/photos/photo-2.jpg",
-        alt: "Outdoor photograph",
-        title: "Photo Two",
-        date: "2026",
-        description:
-            "Another temporary description..",
-    },
-    {
-        id: "photo-3",
-        src: "/photos/photo-3.jpg",
-        alt: "Scenic photograph",
-        title: "Photo Three",
-        date: "2026",
-        description:
-            "The third photograph in the temporary local collection.",
-    },
-];
 
 export default function Photos(){
     const [currentIndex, setCurrentIndex] = useState(0);
