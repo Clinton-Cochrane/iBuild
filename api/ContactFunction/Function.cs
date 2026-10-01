@@ -50,6 +50,8 @@ public class Function
             );
         }
 
+
+
         ContactRequest? contact;
 
         try
@@ -78,6 +80,21 @@ public class Function
             return Response(
                 HttpStatusCode.BadRequest,
                 "Name, email, and message are required."
+            );
+        }
+
+        if (!string.IsNullOrWhiteSpace(contact.Website))
+        {
+            return Response(HttpStatusCode.OK, "Message sent.");
+        }
+
+        if (contact.Name.Trim().Length > 100 ||
+            contact.Email.Trim().Length > 254 ||
+            contact.Message.Trim().Length > 5000)
+        {
+            return Response(
+                HttpStatusCode.BadRequest,
+                "Invalid request."
             );
         }
 
@@ -206,4 +223,5 @@ public sealed class ContactRequest
     public string Name { get; set; } = "";
     public string Email { get; set; } = "";
     public string Message { get; set; } = "";
+    public string Website { get; set; } = "";
 }

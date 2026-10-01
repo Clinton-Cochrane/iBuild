@@ -75,6 +75,15 @@ export default function Contact() {
                             value={formData.name}
                             onChange={handleChange}
                             required
+                            maxLength={150}
+                        />
+
+                        <input
+                            name="website"
+                            type="text"
+                            tabIndex="-1"
+                            autoComplete="off"
+                            className="contact-honeypot"
                         />
                     </div>
 
@@ -88,6 +97,7 @@ export default function Contact() {
                             value={formData.email}
                             onChange={handleChange}
                             required
+                            maxLength={256}
                         />
                     </div>
 
@@ -102,6 +112,7 @@ export default function Contact() {
                             rows="8"
                             value={formData.message}
                             onChange={handleChange}
+                            maxLength={5000}
                             required
                         />
                     </div>
