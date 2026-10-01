@@ -18,7 +18,7 @@ export default function Home() {
                     <nav className="home-intro-links" aria-label="Profile links">
                         <a href="https://www.linkedin.com/in/clinton-cochrane/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                         <a href="https://github.com/Clinton-Cochrane" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="/resume/Clinton_Cochrane_Resume.docx.pdf" download>Resume</a>
+                        <a href="/resume/Clinton_Cochrane_Resume.pdf" download>Resume</a>
                     </nav>
                 </Papercard>
                 {homeCards.map((card) => (
