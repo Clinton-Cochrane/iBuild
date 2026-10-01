@@ -1,12 +1,12 @@
 const photos = [
     {
-        id: "photo-1",
+        id: "Sunrise from Mt.Diablo",
         src: "/photos/photo-1.jpg",
         alt: "Landscape photograph",
         title: "Photo One",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "After racoons woke us up at 4 am we went to the summit to catch sunrise. I can see my house from here",
     },
     {
         id: "photo-2",
@@ -29,56 +29,56 @@ const photos = [
     {
         id: "photo-4",
         src: "/photos/photo-4.jpg",
-        alt: "Photograph 4",
+        alt: "Moon over Angel Island",
         title: "Photo Four",
-        date: "2026",
+        date: "2025",
         description:
-            "A temporary description for this photograph.",
+            "Night time looking at angel island.",
     },
     {
         id: "photo-5",
         src: "/photos/photo-5.jpg",
         alt: "Photograph 5",
-        title: "Photo Five",
-        date: "2026",
+        title: "Black Sand Beach, north of San Francisco",
+        date: "2024",
         description:
-            "A temporary description for this photograph.",
+            "",
     },
     {
-        id: "photo-6",
+        id: "Life's a beach and I'm just playin in the sand",
         src: "/photos/photo-6.jpg",
         alt: "Photograph 6",
         title: "Photo Six",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "Ocean Beach San Francisco",
     },
     {
-        id: "photo-7",
+        id: "Mt Diablo Sunset",
         src: "/photos/photo-7.jpg",
         alt: "Photograph 7",
         title: "Photo Seven",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "",
     },
     {
         id: "photo-8",
         src: "/photos/photo-8.jpg",
         alt: "Photograph 8",
-        title: "Photo Eight",
+        title: "The city and GGB",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "Hiking. Loved how the city looked. ",
     },
     {
         id: "photo-9",
         src: "/photos/photo-9.jpg",
         alt: "Photograph 9",
-        title: "Photo Nine",
+        title: "Hiking in Martinez",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "Random Trail led to a random bench with beautiful views",
     },
     {
         id: "photo-10",
