@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# .NET build output
+/api/ContactFunction/bin/
+/api/ContactFunction/obj/
+
+# Local photos
+/public/photos/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
