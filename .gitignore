@@ -1,3 +1,6 @@
 node_modules/
 dist/
+/api/ContactFunction/bin/
+/api/ContactFunction/obj/
 .DS_Store
+.playwright-cli/
