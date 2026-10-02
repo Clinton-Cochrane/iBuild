@@ -5,6 +5,7 @@ async (page) => {
     const originalViewport = page.viewportSize();
     try {
         await page.reload();
+        await page.getByRole('button', { name: 'Start Game' }).click();
         await page.waitForFunction(async () => {
             const { k } = await import('/src/kaplayCtx.js');
             return k.get('player').length === 1;
@@ -71,7 +72,7 @@ async (page) => {
                             Math.abs(box.pos.y - (object.y + (layer.offsety ?? 0)) * MAP_SCALE) > 0.01) {
                             throw new Error(`Tiled object ${object.id} has incorrect collision bounds.`);
                         }
-                        if (!collider.has(layer.name === 'boundaries' ? 'boundary' : 'stuff')) {
+                        if (!collider.tags.includes(layer.name === 'boundaries' ? 'boundary' : 'stuff')) {
                             throw new Error(`Tiled object ${object.id} has the wrong layer tag.`);
                         }
                     }

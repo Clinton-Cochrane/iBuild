@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>iBuild | Interactive Portfolio</title>
   </head>
   <body>
     <style>
@@ -35,18 +35,25 @@
         display: block;
       }
 
-      #direction-controls {
+      #game-controls {
         position: absolute;
         right: max(1rem, env(safe-area-inset-right));
         bottom: max(1rem, env(safe-area-inset-bottom));
         z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      #direction-controls {
         display: grid;
         grid-template-columns: repeat(3, clamp(44px, 9vw, 56px));
         grid-template-rows: repeat(2, clamp(44px, 9vw, 56px));
         gap: 6px;
       }
 
-      .direction-btn {
+      .direction-btn, #pause-button {
         border: 2px solid rgba(255, 255, 255, 0.8);
         border-radius: 8px;
         background: rgba(0, 0, 0, 0.7);
@@ -59,6 +66,13 @@
         -webkit-touch-callout: none;
       }
 
+      #pause-button {
+        min-width: 100px;
+        min-height: 44px;
+        padding: 0 0.75rem;
+        font-size: 1rem;
+      }
+
       .direction-btn[data-direction="up"] { grid-column: 2; }
       .direction-btn[data-direction="left"] { grid-column: 1; grid-row: 2; }
       .direction-btn[data-direction="down"] { grid-column: 2; grid-row: 2; }
@@ -69,9 +83,100 @@
         color: black;
       }
 
-      .direction-btn:focus-visible {
+      .direction-btn:focus-visible, #pause-button:focus-visible,
+      .portal-action:focus-visible {
         outline: 3px solid #ffdf70;
         outline-offset: 2px;
+      }
+
+      #app.is-portal #game-controls,
+      #app.is-portal .note {
+        display: none;
+      }
+
+      #portal {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        display: grid;
+        place-items: center;
+        box-sizing: border-box;
+        padding: max(1.25rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right))
+          max(1.25rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
+        overflow-y: auto;
+        background:
+          radial-gradient(circle at 20% 15%, rgba(70, 138, 147, 0.28), transparent 35%),
+          radial-gradient(circle at 85% 85%, rgba(222, 165, 92, 0.18), transparent 35%),
+          rgba(13, 25, 35, 0.94);
+        color: #f9f3e5;
+      }
+
+      #portal[hidden] { display: none; }
+
+      .portal-card {
+        width: min(100%, 520px);
+        box-sizing: border-box;
+        padding: clamp(1.5rem, 5vw, 3rem);
+        border: 2px solid #d9b879;
+        border-radius: 12px;
+        background: #1c303b;
+        box-shadow: 0 14px 0 rgba(0, 0, 0, 0.28), 0 26px 60px rgba(0, 0, 0, 0.35);
+        text-align: center;
+      }
+
+      .portal-eyebrow {
+        margin: 0 0 0.75rem;
+        color: #e3c994;
+        font-size: 1rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      #portal-title {
+        margin: 0;
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        line-height: 0.95;
+      }
+
+      #portal-status {
+        margin: 1.25rem 0 1.75rem;
+        color: #d9e3e0;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        line-height: 1.25;
+      }
+
+      .portal-actions {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .portal-action {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 52px;
+        padding: 0.5rem 1rem;
+        border: 2px solid #e3c994;
+        border-radius: 6px;
+        background: #e3c994;
+        color: #172831;
+        font: 1.5rem monogram, monospace;
+        line-height: 1.2;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .portal-action:hover { background: #f6dda9; }
+      .portal-action:disabled { opacity: 0.65; cursor: wait; }
+      .portal-action:disabled:hover { background: #e3c994; }
+      .portal-action.secondary { background: transparent; color: #f9f3e5; }
+      .portal-action.secondary:hover { background: rgba(227, 201, 148, 0.15); }
+
+      .portal-help {
+        margin: 1.5rem 0 0;
+        color: #b8cbc9;
+        font-size: 1rem;
       }
 
       #textbox {
@@ -145,7 +250,7 @@
         pointer-events: none;
       }
     </style>
-    <div id="app">
+    <div id="app" class="is-portal">
       <div>
         <p class="note">Move with WASD, arrow keys, or the buttons</p>
 
@@ -159,12 +264,27 @@
         </div>
       </div>
       <canvas id="game"></canvas>
-      <div id="direction-controls" role="group" aria-label="Movement controls">
-        <button type="button" class="direction-btn" data-direction="up" aria-label="Move up">↑</button>
-        <button type="button" class="direction-btn" data-direction="left" aria-label="Move left">←</button>
-        <button type="button" class="direction-btn" data-direction="down" aria-label="Move down">↓</button>
-        <button type="button" class="direction-btn" data-direction="right" aria-label="Move right">→</button>
+      <div id="game-controls">
+        <button type="button" id="pause-button" aria-label="Pause game">Ⅱ Pause</button>
+        <div id="direction-controls" role="group" aria-label="Movement controls">
+          <button type="button" class="direction-btn" data-direction="up" aria-label="Move up">↑</button>
+          <button type="button" class="direction-btn" data-direction="left" aria-label="Move left">←</button>
+          <button type="button" class="direction-btn" data-direction="down" aria-label="Move down">↓</button>
+          <button type="button" class="direction-btn" data-direction="right" aria-label="Move right">→</button>
+        </div>
       </div>
+      <section id="portal" role="dialog" aria-modal="true" aria-labelledby="portal-title" aria-describedby="portal-status">
+        <div class="portal-card">
+          <p class="portal-eyebrow">iBuild · Interactive portfolio</p>
+          <h1 id="portal-title">Welcome to iBuild</h1>
+          <p id="portal-status">Loading the game...</p>
+          <div class="portal-actions">
+            <button type="button" id="portal-play" class="portal-action" disabled>Start Game</button>
+            <a id="portal-portfolio" class="portal-action secondary" href="https://d1h6dtn638poed.cloudfront.net/">Portfolio</a>
+          </div>
+          <p id="portal-help" class="portal-help">Move with WASD, arrow keys, or the on-screen buttons. Press Esc to pause.</p>
+        </div>
+      </section>
     </div>
     <script type="module" src="src/main.js"></script>
   </body>

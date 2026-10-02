@@ -2,6 +2,7 @@ import { dialogueData, MAP_SCALE, PLAYER_SCALE } from "./constants";
 import { k } from "./kaplayCtx";
 import { displayDialogue } from "./utils";
 import { clearDirectionButtons, isDirectionButtonDown } from "./controls";
+import { setupPortal } from "./portal";
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
     sliceX: 39,
@@ -19,7 +20,7 @@ k.loadSprite("spritesheet", "./spritesheet.png", {
 k.loadSprite("map", "map.png");
 k.loadJSON("map-data", "./map.json");
 
-k.setBackground(k.Color.CYAN);
+k.setBackground(k.Color.BLACK);
 
 k.scene("main", () => {
     const mapData = k.getAsset("map-data").data;
@@ -124,4 +125,4 @@ k.scene("main", () => {
     fitMapToScreen();
     k.onResize(fitMapToScreen);
 });
-k.onLoad(() => k.go("main"));
+setupPortal(k);

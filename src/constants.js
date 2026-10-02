@@ -5,6 +5,8 @@ export const PLAYER_SCALE = 4;
 
 export const dialogueData = {
 
+  nova: `1974 Nova. 390 hp. Racing game coming soon.`,
+
   resume: `Here is my resume. I'll add the resume and contact links soon.`,
 
   window: `I want to share some pictures here.
@@ -75,6 +77,5 @@ export const dialogueData = {
     </p>
   `,
 };
-
 
 
