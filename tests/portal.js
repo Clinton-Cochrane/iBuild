@@ -13,6 +13,11 @@ async (page) => {
             'https://d1h6dtn638poed.cloudfront.net/') {
             throw new Error('Portfolio link does not point to the portfolio root.');
         }
+        const portfolioLink = page.getByRole('link', { name: 'Portfolio' });
+        if (await portfolioLink.getAttribute('target') !== '_blank' ||
+            !(await portfolioLink.getAttribute('rel'))?.split(/\s+/).includes('noopener')) {
+            throw new Error('Portfolio link does not open safely in a new tab.');
+        }
         if (await page.evaluate(async () => (await import('/src/kaplayCtx.js')).k.get('player').length) !== 0) {
             throw new Error('Gameplay objects were created before Start Game.');
         }
