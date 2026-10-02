@@ -7,7 +7,7 @@ export const dialogueData = {
 
   nova: `1974 Nova. 390 hp. Racing game coming soon.`,
 
-  resume: `Here is my resume. I'll add the resume and contact links soon.`,
+  resume: `Here is my resume. <a href="./resume.pdf" download="Clinton-Cochrane-Resume.pdf">Download a PDF copy</a>.`,
 
   window: `I want to share some pictures here.
     <img src="/window-view.png" alt="Purple dusk sky over hills, with a moon and wildflowers">
@@ -77,5 +77,3 @@ export const dialogueData = {
     </p>
   `,
 };
-
-
