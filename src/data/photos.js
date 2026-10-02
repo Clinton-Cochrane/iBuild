@@ -3,7 +3,7 @@ const photos = [
         id: "Sunrise from Mt.Diablo",
         src: "/photos/photo-1.jpg",
         alt: "Landscape photograph",
-        title: "Photo One",
+        title: "sunrise at diablo",
         date: "2026",
         description:
             "After racoons woke us up at 4 am we went to the summit to catch sunrise. I can see my house from here",
@@ -30,7 +30,7 @@ const photos = [
         id: "photo-4",
         src: "/photos/photo-4.jpg",
         alt: "Moon over Angel Island",
-        title: "Photo Four",
+        title: "Angel Island",
         date: "2025",
         description:
             "Night time looking at angel island.",
@@ -48,7 +48,7 @@ const photos = [
         id: "Life's a beach and I'm just playin in the sand",
         src: "/photos/photo-6.jpg",
         alt: "Photograph 6",
-        title: "Photo Six",
+        title: "sand",
         date: "2026",
         description:
             "Ocean Beach San Francisco",
@@ -57,7 +57,7 @@ const photos = [
         id: "Mt Diablo Sunset",
         src: "/photos/photo-7.jpg",
         alt: "Photograph 7",
-        title: "Photo Seven",
+        title: "Another Diablo Sunset",
         date: "2026",
         description:
             "",
