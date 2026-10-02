@@ -50,8 +50,6 @@ public class Function
             );
         }
 
-
-
         ContactRequest? contact;
 
         try
@@ -155,15 +153,10 @@ public class Function
                 "Message sent."
             );
         }
-        catch (Amazon.SimpleEmailV2.AmazonSimpleEmailServiceV2Exception ex)
+        catch (AmazonSimpleEmailServiceV2Exception ex)
         {
             context.Logger.LogError(
-                $"SES failed | " +
-                $"Status={(int)ex.StatusCode} {ex.StatusCode} | " +
-                $"ErrorCode={ex.ErrorCode} | " +
-                $"Message={ex.Message} | " +
-                $"RequestId={ex.RequestId} | " +
-                $"Inner={ex.InnerException?.Message}"
+                $"Contact email send failed: {ex.ErrorCode} ({(int)ex.StatusCode})."
             );
 
             return Response(
@@ -174,7 +167,7 @@ public class Function
         catch (Exception ex)
         {
             context.Logger.LogError(
-                $"SES send failed: {ex.GetType().Name}"
+                $"Contact email send failed: {ex.GetType().Name}."
             );
 
             return Response(
