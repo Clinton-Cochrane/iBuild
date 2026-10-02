@@ -81,6 +81,10 @@
     margin-top: 1.5rem;
 }
 
+.contact-honeypot {
+    display: none;
+}
+
 .contact-field {
     display: flex;
     flex-direction: column;
