@@ -1,0 +1,61 @@
+ 
+name: Deploy portfolio
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: portfolio-production
+  cancel-in-progress: true
+
+env:
+  AWS_REGION: us-west-1
+  S3_BUCKET: clintoncochrane-ibuild-prod
+  CLOUDFRONT_DISTRIBUTION_ID: 	E130YHQ776VKXI
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Node
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::370734989931:role/GitHubActions-iBuildPortfolio-Deploy
+          aws-region: ${{ env.AWS_REGION }}
+          allowed-account-ids: 370734989931
+
+      - name: Deploy to S3
+        run: >
+          aws s3 sync dist/
+          s3://${{ env.S3_BUCKET }}
+          --delete
+          --only-show-errors
+
+      - name: Invalidate CloudFront cache
+        run: >
+          aws cloudfront create-invalidation
+          --distribution-id "${{ env.CLOUDFRONT_DISTRIBUTION_ID }}"
+          --paths "/*"

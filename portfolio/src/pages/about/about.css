@@ -1,0 +1,228 @@
+/* =========================
+   ABOUT PAGE
+   ========================= */
+
+.about-page {
+    width: min(1200px, calc(100% - 4rem));
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+
+/* =========================
+   PAGE HEADING
+   ========================= */
+
+.about-heading {
+    width: fit-content;
+
+    margin: 1rem 0 2rem;
+
+    color: #181818;
+    font-size: 2rem;
+}
+
+.about-heading::after {
+    content: "";
+
+    display: block;
+
+    width: 4rem;
+    height: 1px;
+
+    margin-top: 0.5rem;
+
+    background: #8a8a86;
+}
+
+
+/* =========================
+   PAST / PRESENT / FUTURE
+   ========================= */
+
+.about-switcher {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    width: min(780px, 100%);
+
+    margin-bottom: 2rem;
+    padding: 0.35rem;
+
+    background: #f1f0eb;
+
+    border: 1px solid #d8d7d1;
+    border-radius: 0.75rem;
+
+    box-shadow:
+        6px 8px 14px rgba(0, 0, 0, 0.08),
+        2px 3px 4px rgba(0, 0, 0, 0.06);
+}
+
+.about-switcher-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0.9rem 1rem;
+
+    background: transparent;
+    color: #555555;
+
+    border: 0;
+    border-radius: 0.6rem;
+
+    font: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background-color 150ms ease,
+        box-shadow 150ms ease,
+        transform 150ms ease;
+}
+
+.about-switcher-button strong {
+    color: #181818;
+    font-size: 1rem;
+}
+
+.about-switcher-button span {
+    margin-top: 0.2rem;
+
+    color: #8a8a86;
+    font-size: 0.8rem;
+}
+
+.about-switcher-button:hover {
+    transform: translate(-1px, -1px);
+}
+
+.about-switcher-button.active {
+    background: #fafaf7;
+
+    transform: translate(-2px, -2px);
+
+    box-shadow:
+        5px 6px 10px rgba(0, 0, 0, 0.10),
+        2px 3px 4px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   MAIN STORY SHEET
+   ========================= */
+
+.about-main-card {
+    height: 20rem;
+    min-height: 20rem;
+    padding: 3rem;
+
+    border-radius: 0.5rem;
+
+    box-shadow:
+        4px 5px 0 #ecebe6,
+        8px 10px 0 #e4e3dd,
+        12px 16px 24px rgba(0, 0, 0, 0.12);
+}
+
+.about-main-card h2 {
+    margin-top: 0;
+
+    font-size: 2rem;
+}
+
+.about-main-card p {
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.about-main-card .paper-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.about-main-card-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.about-main-card-scroll p:first-child {
+    margin-top: 0;
+}
+
+
+/* =========================
+   SUPPORTING NOTES
+   ========================= */
+
+.about-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    align-items: start;
+}
+
+.about-card-grid .paper-card {
+    min-height: 15rem;
+
+    border-radius: 0.5rem;
+}
+
+.about-card-spare-time {
+    transform: translateY(0.5rem);
+}
+
+.about-card-hobbies {
+    transform: translateY(0);
+}
+
+.about-card-building {
+    transform: translateY(0.75rem);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+    .about-page {
+        width: min(100% - 2rem, 1200px);
+    }
+
+    .about-switcher {
+        grid-template-columns: 1fr;
+
+        width: 100%;
+
+        border-radius: 1rem;
+    }
+
+    .about-switcher-button {
+        border-radius: 0.75rem;
+    }
+
+    .about-main-card {
+        height: 28rem;
+        min-height: auto;
+        padding: 2rem;
+    }
+
+    .about-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card-spare-time,
+    .about-card-hobbies,
+    .about-card-building {
+        transform: none;
+    }
+}

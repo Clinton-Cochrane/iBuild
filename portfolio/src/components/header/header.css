@@ -1,0 +1,23 @@
+.site-header {
+    width: min(1200px, calc(100%-4rem));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.site-brand-mark {
+    color: #181818;
+    font-size: 3rem;
+    line-height: 0.9;
+    font-weight: 600;
+}
+
+.site-brand-name{
+    margin-top: 0.4rem;
+    color: #555555;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}

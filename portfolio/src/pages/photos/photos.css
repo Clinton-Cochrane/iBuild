@@ -1,0 +1,211 @@
+.photos-page {
+    width: min(1100px, calc(100% - 4rem));
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.photos-header {
+    margin: 1rem 0 2rem;
+}
+
+.photos-heading {
+    width: fit-content;
+
+    margin: 0;
+
+    color: #181818;
+    font-size: 2rem;
+}
+
+.photos-heading::after {
+    content: "";
+
+    display: block;
+
+    width: 4rem;
+    height: 1px;
+
+    margin-top: 0.5rem;
+
+    background: #8a8a86;
+}
+
+.photos-header p {
+    margin-top: 1rem;
+
+    color: #555555;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CAROUSEL
+   ========================= */
+
+.photo-carousel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 49rem) auto;
+    align-items: center;
+
+    gap: 1rem;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.photo-frame {
+    overflow: hidden;
+
+    aspect-ratio: 16 / 9;
+
+    background: #ecebe6;
+
+    border: 1px solid #d8d7d1;
+    border-radius: 0.5rem;
+
+    box-shadow:
+        8px 10px 18px rgba(0, 0, 0, 0.10),
+        2px 3px 5px rgba(0, 0, 0, 0.08);
+}
+
+.photo-frame img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   CAROUSEL BUTTONS
+   ========================= */
+
+.carousel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3rem;
+    height: 3rem;
+
+    background: #fafaf7;
+    color: #181818;
+
+    border: 1px solid #d8d7d1;
+    border-radius: 999px;
+
+    font: inherit;
+    font-size: 1.25rem;
+
+    cursor: pointer;
+
+    box-shadow:
+        5px 6px 10px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.carousel-button:hover {
+    transform: translate(-2px, -2px);
+
+    box-shadow:
+        8px 9px 14px rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================
+   COUNTER
+   ========================= */
+
+.photo-counter {
+    margin: 1rem 0;
+
+    color: #8a8a86;
+
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+
+/* =========================
+   DESCRIPTION NOTE
+   ========================= */
+
+.photo-description-card {
+    width: min(650px, 90%);
+
+    min-height: auto;
+
+    margin: 0 auto;
+    padding: 1.75rem 2rem;
+
+    border-radius: 0.5rem;
+
+    box-shadow:
+        4px 5px 0 #ecebe6,
+        8px 10px 18px rgba(0, 0, 0, 0.10);
+}
+
+.photo-description-card h2 {
+    margin-bottom: 0.25rem;
+}
+
+.photo-date {
+    color: #8a8a86;
+
+    font-size: 0.8rem;
+}
+
+.photo-description-card p {
+    margin-bottom: 0;
+
+    color: #555555;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+    .photos-page {
+        width: min(100% - 2rem, 1100px);
+    }
+
+    .photo-carousel {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .photo-frame {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .carousel-button {
+        grid-row: 2;
+
+        justify-self: center;
+    }
+
+    .carousel-button-previous {
+        grid-column: 1;
+    }
+
+    .carousel-button-next {
+        grid-column: 2;
+    }
+
+    .photo-description-card {
+        width: 100%;
+    }
+}
