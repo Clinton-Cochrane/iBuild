@@ -21,7 +21,7 @@ concurrency:
 env:
   AWS_REGION: us-west-1
   S3_BUCKET: clintoncochrane-ibuild-prod
-  CLOUDFRONT_DISTRIBUTION_ID: 	E130YHQ776VKXI
+  CLOUDFRONT_DISTRIBUTION_ID: E130YHQ776VKXI
 
 jobs:
   deploy:
