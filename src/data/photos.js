@@ -11,20 +11,20 @@ const photos = [
     {
         id: "photo-2",
         src: "/photos/photo-2.jpg",
-        alt: "Outdoor photograph",
-        title: "Photo Two",
-        date: "2026",
+        alt: "Nova mid paint",
+        title: "Nova Mid Paint",
+        date: "2023",
         description:
-            "Another temporary description..",
+            "It was silver, white, and black. Lots of work in one picture.",
     },
     {
         id: "photo-3",
         src: "/photos/photo-3.jpg",
         alt: "Scenic photograph",
-        title: "Photo Three",
+        title: "Smokie The Cat",
         date: "2026",
         description:
-            "The third photograph in the temporary local collection.",
+            "Smokie The Cat during Xmas",
     },
     {
         id: "photo-4",
@@ -93,10 +93,10 @@ const photos = [
         id: "photo-11",
         src: "/photos/photo-11.jpg",
         alt: "Photograph 11",
-        title: "Photo Eleven",
+        title: "Coast Guard Rescue",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "Ocean Beach is for sand not water",
     },
     {
         id: "photo-12",
@@ -114,7 +114,7 @@ const photos = [
         title: "Mt. Diablo",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "",
     },
 ];
 
