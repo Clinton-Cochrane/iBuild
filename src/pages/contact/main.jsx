@@ -2,8 +2,9 @@ import { useState } from "react";
 import Papercard from "../../components/papercard/papercard"
 import "./contact.css"
 
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
 export default function Contact() {
-    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [formData, setFormData] = useState({ name: "", email: "", message: "", website: "" });
     const [status, setStatus] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -18,8 +19,7 @@ export default function Contact() {
         setStatus("");
 
         try {
-            const response = await fetch(
-                "https://4kkh7ofq1f.execute-api.us-west-1.amazonaws.com/contact",
+            const response = await fetch(CONTACT_API_URL,
                 {
                     method: "POST",
                     headers: {
@@ -37,6 +37,7 @@ export default function Contact() {
                 name: "",
                 email: "",
                 message: "",
+                website: "",
             });
 
             setStatus("Message sent.");
@@ -81,6 +82,8 @@ export default function Contact() {
                         <input
                             name="website"
                             type="text"
+                            value={formData.website}
+                            onChange={handleChange}
                             tabIndex="-1"
                             autoComplete="off"
                             className="contact-honeypot"

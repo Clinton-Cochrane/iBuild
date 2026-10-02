@@ -84,10 +84,10 @@ const photos = [
         id: "photo-10",
         src: "/photos/photo-10.jpg",
         alt: "Photograph 10",
-        title: "Photo Ten",
+        title: "Sunset Mt. Diablo -tree",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "It felt artistic.",
     },
     {
         id: "photo-11",
@@ -102,16 +102,16 @@ const photos = [
         id: "photo-12",
         src: "/photos/photo-12.jpg",
         alt: "Photograph 12",
-        title: "Photo Twelve",
+        title: "Lego Golden Gate Bridge Under Construction",
         date: "2026",
         description:
-            "A temporary description for this photograph.",
+            "At the mini-legoland in Milpitas. ",
     },
     {
         id: "photo-13",
         src: "/photos/photo-13.JPG",
         alt: "Photograph 13",
-        title: "Photo Thirteen",
+        title: "Mt. Diablo",
         date: "2026",
         description:
             "A temporary description for this photograph.",
